@@ -28,6 +28,16 @@ function App() {
     getMovieRequest(searchValue)
   }, [searchValue])
 
+  useEffect(() => {
+		const movieFavorites = JSON.parse(
+			localStorage.getItem('react-movie-app-favorites')
+		);
+
+		if (movieFavorites) {
+			setFavorites(movieFavorites);
+		}
+	}, []);
+
   const saveToLocalStorage = (items) => {
     localStorage.setItem('react-movie-app-favorites', JSON.stringify(items))
   }
@@ -49,7 +59,7 @@ function App() {
 
   return (
     <div className="container-fluid movie-app">
-      <div className='row d-flex align-items-center mt-4 mb-4'>
+      <div className="row d-flex align-items-center mt-4 mb-4">
         <MovieListHeading heading="Movies" />
         <SearchBox searchValue={searchValue} setSearchValue={setSearchValue}/>
       </div>

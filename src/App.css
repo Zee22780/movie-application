@@ -9,6 +9,7 @@ body {
 }
 
 .image-container {
+  width: 30%;
   position: relative;
   transition: transform 0.2s;
 }
@@ -32,5 +33,4 @@ body {
   font-size: 20px;
   padding: 20px;
   text-align: center;
-
 }

@@ -9,7 +9,7 @@ const SearchBox = (props) => {
         placeholder="Type to search..."
       />
     </div>
-   );
+  );
 }
 
 export default SearchBox;
