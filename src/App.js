@@ -5,6 +5,7 @@ import MovieList from './components/MovieList';
 import MovieListHeading from './components/MovieListHeading';
 import SearchBox from './components/SearchBox';
 import AddFavorites from './components/AddFavorites';
+import RemoveFavorites from './components/RemoveFavorites';
 
 function App() {
 
@@ -43,7 +44,7 @@ function App() {
         <MovieList 
           movies={movies}
           handleFavoritesClick={AddFavoriteMovie}
-          favoriteComponent={AddFavorites}
+          favoriteCompoUnent={AddFavorites}
         />
       </div>
       <div className='row d-flex align-items-center mt-4 mb-4'>
