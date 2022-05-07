@@ -28,9 +28,22 @@ function App() {
     getMovieRequest(searchValue)
   }, [searchValue])
 
+  const saveToLocalStorage = (items) => {
+    localStorage.setItem('react-movie-app-favorites', JSON.stringify(items))
+  }
+
   const AddFavoriteMovie = (movie) => {
     const newFavoriteList = [...favorites, movie]
     setFavorites(newFavoriteList)
+    saveToLocalStorage(newFavoriteList)
+  }
+
+  const removeFavoriteMovie = (movie) => {
+    const newFavoriteList = favorites.filter(
+      (favorite) => favorite.imdbID !== movie.imdbID
+    )
+    setFavorites(newFavoriteList)
+    saveToLocalStorage(newFavoriteList)
   }
 
 
@@ -44,7 +57,7 @@ function App() {
         <MovieList 
           movies={movies}
           handleFavoritesClick={AddFavoriteMovie}
-          favoriteCompoUnent={AddFavorites}
+          favoriteComponent={AddFavorites}
         />
       </div>
       <div className='row d-flex align-items-center mt-4 mb-4'>
@@ -53,6 +66,8 @@ function App() {
       <div className='row'>
         <MovieList
           movies={favorites}
+          handleFavoritesClick={removeFavoriteMovie}
+          favoriteComponent={RemoveFavorites}
         />
       </div>
     </div>
